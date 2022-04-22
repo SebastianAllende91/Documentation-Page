@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Documentation Page</title>
+</head>
+
+<body>
+    <nav id="nav-bar">
+        <header>React Js</header>
+        <ul>
+            <li><a class="nav-link" href="#hola_mundo">Hola Mundo</a></li>
+            <li><a class="nav-link" href="#presentando_jsx">Presentando JSX</a></li>
+            <li>
+                <a class="nav-link" href="#renderizando_elementos">Renderizando elementos</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#componentes_y_propiedades">Componentes y propiedades</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#estado_y_ciclo_de_vida">Estado y ciclo de vida</a>
+            </li>
+            <li><a class="nav-link" href="#reference">Referencia</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="hola_mundo">
+            <header>Hola Mundo</header>
+            <article>
+                <p>
+                    El más pequeño de los ejemplos de React se ve así:
+                    <code>ReactDOM .createRoot(document.getElementById('root')) .render(
+                &lth1&gtHello, world! &lt/h1&gt );</code>
+                </p>
+                <p>
+                    Este es el primer capítulo en una guía paso a paso sobre los
+                    principales conceptos de React. Puedes encontrar una lista de todos
+                    los capítulos en la barra de navegación lateral. Si estás leyendo esto
+                    desde un dispositivo móvil, puedes acceder a la navegación presionando
+                    el botón en la esquina inferior derecha de tu pantalla.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="presentando_jsx">
+            <header>Presentando JSX</header>
+           <article>
+            <p>
+                Considera la declaración de esta variable:
+                <code>const element = &lth1&gtHello, world!&lt/h1&gt;</code>
+            </p>
+            <p>Esta curiosa sintaxis de etiquetas no es ni un string ni HTML.</p>
+            <p>
+                Se llama JSX, y es una extensión de la sintaxis de JavaScript.
+                Recomendamos usarlo con React para describir cómo debería ser la
+                interfaz de usuario. JSX puede recordarte a un lenguaje de plantillas,
+                pero viene con todo el poder de JavaScript.
+            </p>
+           </article>
+        </section>
+        <section class="main-section" id="renderizando_elementos">
+            <header>Renderizando elementos</header>
+          <article>
+            <p>
+                Digamos que hay un en alguna parte de tu archivo HTML:
+                <code></code>&ltdiv id="root"&gt&lt/div&gt</code>
+            </p>
+            <p>
+                Lo llamamos un nodo “raíz” porque todo lo que esté dentro de él será
+                manejado por React DOM.
+            </p>
+            <p>
+                Las aplicaciones construidas solamente con React usualmente tienen un
+                único nodo raíz en el DOM. Dado el caso que estés integrando React en
+                una aplicación existente, puedes tener tantos nodos raíz del DOM
+                aislados como quieras.
+            </p>
+            <p>
+                Para renderizar un elemento de React, primero pasamos el elemento del
+                DOM a <strong>ReactDOM.createRoot()</strong>, luego pasamos el
+                elemento de React a
+                <strong>root.render():</strong>
+                <code>
+            const element = &lth1&gtHello, world&lt/h1&gt; const root =
+            ReactDOM.createRoot( document.getElementById('root') );
+            root.render(element);
+          </code>
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="componentes_y_propiedades">
+            <header>Componentes y propiedades</header>
+           <article>
+            <p>
+                Los componentes permiten separar la interfaz de usuario en piezas
+                independientes, reutilizables y pensar en cada pieza de forma aislada.
+                Esta página proporciona una introducción a la idea de los componentes.
+                Puedes encontrar una API detallada sobre componentes aquí.
+            </p>
+            <p>
+                Conceptualmente, los componentes son como las funciones de JavaScript.
+                Aceptan entradas arbitrarias (llamadas “props”) y retornan elementos
+                de React que describen lo que debe aparecer en la pantalla.
+            </p>
+            <p>
+                La forma más sencilla de definir un componente es escribir una función
+                de JavaScript:
+
+                <code>function Welcome(props) { return &lth1&gtHello,
+            {props.name}&lt/h1&gt; }</code>
+            </p>
+
+            <p>
+                Esta función es un componente de React válido porque acepta un solo
+                argumento de objeto “props” (que proviene de propiedades) con datos y
+                devuelve un elemento de React. Llamamos a dichos componentes
+                “funcionales” porque literalmente son funciones JavaScript.
+            </p>
+            <p>
+                También puedes utilizar una clase de ES6 para definir un componente:
+                <code>
+            class Welcome extends React.Component { render() { return
+            &lth1&gtHello, {this.props.name}&lt/h1&gt; } }
+          </code>
+            </p>
+           </article>
+        </section>
+        <section class="main-section" id="estado_y_ciclo_de_vida">
+            <header>Estado y ciclo de vida</header>
+    <article>
+        <p>
+            Consideremos el ejemplo del reloj de una de las secciones anteriores.
+            En Renderizando elementos, aprendimos solo una forma de actualizar la
+            interfaz de usuario. Invocamos a <strong>root.render()</strong> para
+            que cambie el resultado renderizado.
+        </p>
+        <p>
+            <code>
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        function tick() { const element = ( &ltdiv&gt &lth1&gtHello,
+        world!&lt/h1&gt &lth2&gtIt is {new
+        Date().toLocaleTimeString()}.&lt/h2&gt &lt/div&gt );
+        root.render(element); } setInterval(tick, 1000);
+      </code>
+        </p>
+        <p>En esta sección, aprenderemos como hacer al componente Clock verdaderamente reutilizable y encapsulado.
+            Configurarás tu propio temporizador y se actualizará cada segundo.</p>
+        <p>Podemos comenzar por encapsular cómo se ve el reloj: <code>
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+            function Clock(props) {
+            return (
+                &ltdiv&gt
+                &lth1&gtHello, world!&lt/h1&gt
+                &lth2&gtIt is {props.date.toLocaleTimeString()}.&lt/h2&gt
+                &lt/div&gt
+            );
+            }
+
+            function tick() {
+            root.render(&ltClock date={new Date()} /&gt);
+            }
+
+            setInterval(tick, 1000);
+    </code>
+        </p>
+
+    </article>
+        </section>
+        <section class="main-section" id="reference">
+            <header>Referencia</header>
+          <article>
+            <p>Para mas informacion sobre: </p>
+            <ul>
+                <li>Manejando eventos</li>
+                <li>Renderizado condicional</li>
+                <li>Listas y keys</li>
+                <li>Formularios</li>
+                <li>Levantando el estado</li>
+                <li>Composición vs. herencia</li>
+                <li>Pensando en React</li>
+            </ul>
+            <p>y mas, consulte el sitio oficial de <a href="https://es.reactjs.org/docs/getting-started.html"
+                    target="_blank">ReactJs</a>, de donde sacamos toda la documentacion de esta pagina</p>
+
+          </article>
+        </section>
+    </main>
+</body>
+
+</html>
